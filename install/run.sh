@@ -23,5 +23,12 @@ fi
 # Always run migrations
 /usr/bin/python /home/first/manage.py migrate
 
+# up engine
+python /home/first/utilities/engine_shell.py install first.engines.exact_match ExactMatchEngine "root@localhost"
+python /home/first/utilities/engine_shell.py install first.engines.mnemonic_hash MnemonicHashEngine "root@localhost"
+python /home/first/utilities/engine_shell.py install first.engines.basic_masking BasicMaskingEngine "root@localhost"
+
 # Finally, start up the apache service
 /usr/sbin/apache2ctl -D FOREGROUND
+
+
